@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "49334de2-a769-4898-850f-24d79119b686",
+		"name": "API-MOVIES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27974172"
+	},
+	"item": [
+		{
+			"name": "1. Get data movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8002/movies"
+			},
+			"response": []
+		},
+		{
+			"name": "2. Insert data movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Pengabdi Setan 2 Comunion\",\r\n    \"description\": \"dalah sebuah film horor Indonesia tahun 2022 yang disutradarai dan ditulis oleh Joko Anwar sebagai sekuel dari film tahun 2017, Pengabdi Setan.\",\r\n    \"rating\": 7,\r\n    \"image\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8002/movies"
+			},
+			"response": []
+		},
+		{
+			"name": "3. Get data movie by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8002/movies/1"
+			},
+			"response": []
+		},
+		{
+			"name": "4. Update data movie by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Pengabdi Setan 2 Comunion\",\r\n    \"description\": \"Adalah sebuah film horor Indonesia tahun 2022 yang disutradarai dan ditulis oleh Joko Anwar sebagai sekuel dari film tahun 2017.\",\r\n    \"rating\": 7.8,\r\n    \"image\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8002/movies/1"
+			},
+			"response": []
+		},
+		{
+			"name": "5. Delete data movie by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8002/movies/2"
+			},
+			"response": []
+		}
+	]
+}
