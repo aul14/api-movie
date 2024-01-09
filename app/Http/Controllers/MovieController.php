@@ -24,7 +24,7 @@ class MovieController extends Controller
             'title'    => 'required|max:150|unique:movies,title',
             'rating'    => 'required|numeric',
             'description' => 'required',
-            'image' => 'nullable'
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         DB::beginTransaction();
@@ -33,7 +33,13 @@ class MovieController extends Controller
             $mv->title = $request->title;
             $mv->description = $request->description;
             $mv->rating = $request->rating;
-            $mv->image = $request->image;
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(app()->basePath('public/uploads'), $imageName);
+                $mv->image = $imageName;
+            }
+    
             $mv->save();
 
             DB::commit();
